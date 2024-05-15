@@ -1,4 +1,4 @@
-import { encodingForModel, getEncoding, Tiktoken } from 'js-tiktoken'
+import { encoding_for_model as encodingForModel, get_encoding as getEncoding, Tiktoken } from 'tiktoken'
 import { promptTokensEstimate }                    from 'openai-chat-tokens'
 import { TokenPrice }                              from './tokenPrice'
 
