@@ -46,6 +46,24 @@ function benchmark({ options, iterations=1000, log=false }) {
   return totalExecutionTime
 }
 
+console.log(`>>> Start of Test Result >>>`)
+
+console.log(`>>> Start of Batch 1 >>>`)
+benchmark({
+  options: {
+    model: 'gpt-3.5-turbo-0613',
+    messages: [{
+      role   : 'user',
+      content: 'Hello world',
+    }],
+  },
+  iterations: 20,
+  log: true
+})
+console.log(`>>> End of Batch 1 >>>`)
+
+console.log(`>>> Start of Batch 2 >>>`)
+
 const results = []
 const settings = []
 
@@ -76,23 +94,7 @@ for (const setting of settings) {
   results.push({setting: setting, exeTime: totalExecutionTime})
 }
 
-console.log(`>>> Start of Test Result >>>`)
-
-console.log(`>>> Start of Batch 1 >>>`)
-benchmark({
-  options: {
-    model: 'gpt-3.5-turbo-0613',
-    messages: [{
-      role   : 'user',
-      content: 'Hello world',
-    }],
-  },
-  iterations: 20,
-  log: true
-})
-console.log(`>>> End of Batch 1 >>>`)
-
-console.log(`>>> Start of Batch 2 >>>`)
+console.log('\nStatistical Information:')
 const callsPerIteration = 4
 results.forEach(result => {
   const tokens = new GPTTokens(result.setting.options).usedTokens

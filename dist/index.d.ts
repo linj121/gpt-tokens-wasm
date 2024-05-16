@@ -1,6 +1,5 @@
 import { Tiktoken } from 'js-tiktoken';
 import { TokenPrice } from './tokenPrice';
-export declare function getEncodingForModelCached(model: supportModelType): Tiktoken;
 /**
  * This is a port of the Python code from
  *
@@ -13,6 +12,10 @@ interface MessageItem {
     content: string;
 }
 export declare class GPTTokens extends TokenPrice {
+    protected static modelEncodingCache: {
+        [key in supportModelType]?: Tiktoken;
+    };
+    protected static getEncodingForModelCached(model: supportModelType): Tiktoken;
     constructor(options: {
         model?: supportModelType;
         fineTuneModel?: string;
