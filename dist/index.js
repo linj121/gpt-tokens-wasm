@@ -1,18 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GPTTokens = exports.getEncodingForModelCached = void 0;
-const tiktoken_1 = require("tiktoken");
+// import { encoding_for_model as encodingForModel, get_encoding as getEncoding, Tiktoken } from 'tiktoken'
+const js_tiktoken_1 = require("js-tiktoken");
 const openai_chat_tokens_1 = require("openai-chat-tokens");
 const tokenPrice_1 = require("./tokenPrice");
 let modelEncodingCache = {};
 function getEncodingForModelCached(model) {
     if (!modelEncodingCache[model]) {
         try {
-            modelEncodingCache[model] = (0, tiktoken_1.encoding_for_model)(model);
+            modelEncodingCache[model] = (0, js_tiktoken_1.encodingForModel)(model);
         }
         catch (e) {
             console.error('Model not found. Using cl100k_base encoding.');
-            modelEncodingCache[model] = (0, tiktoken_1.get_encoding)('cl100k_base');
+            modelEncodingCache[model] = (0, js_tiktoken_1.getEncoding)('cl100k_base');
         }
     }
     return modelEncodingCache[model];

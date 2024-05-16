@@ -13,7 +13,7 @@
         "amount"
     ],
     "scripts": {
-        "test": "node test.js",
+        "test": "node tests/index.js",
         "build": "npm i && rm -rf dist && tsc && npm run test"
     },
     "exports": {
@@ -31,6 +31,7 @@
     "license": "MIT",
     "dependencies": {
         "decimal.js": "^10.4.3",
+        "js-tiktoken": "^1.0.12",
         "openai-chat-tokens": "^0.2.8",
         "tiktoken": "^1.0.15"
     },

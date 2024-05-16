@@ -12,6 +12,8 @@ node_modules
 
 package-lock.json
 
+tests/out
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

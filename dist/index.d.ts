@@ -1,4 +1,4 @@
-import { Tiktoken } from 'tiktoken';
+import { Tiktoken } from 'js-tiktoken';
 import { TokenPrice } from './tokenPrice';
 export declare function getEncodingForModelCached(model: supportModelType): Tiktoken;
 /**
